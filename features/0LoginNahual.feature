@@ -1,6 +1,7 @@
 Feature: As a Google user          
          I want to login in the web page of nahual          
          so I can request access to the app or verify my account and login  
+         
 @smoke
 Scenario: Login with a google account 
     Given I am on the Nahual intial page
