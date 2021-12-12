@@ -1,10 +1,11 @@
+Before do
+    @initialPage = InitialPage.new(page)
+    puts 'holka'
+end
+
 Given("I am on the Nahual intial page") do
     page.driver.browser.manage.window.maximize
         visit 'https://nahual-argentina-develop.vercel.app/'
-end
-
-Before do
-    @initialPage = InitialPage.new(page)
 end
 
 When('I click the Iniciar Sesión button') do

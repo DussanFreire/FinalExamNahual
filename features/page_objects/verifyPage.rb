@@ -6,7 +6,24 @@ class VerifyPage
         @VERIFY_BTN = "/html/body/div/div/div[4]/div[2]/div/div[3]/div/div/div[2]/button"
         @CLOSE_SESSION_BTN = "/html/body/div/div/div[4]/div[2]/div/div[3]/div/div/div[1]/button"
         @REQUEST_BTN = "/html/body/div/div/div[4]/div[2]/div/div[3]/div/div/div[3]/button"
+        @TOP_RIGHT_CLOSE_SESSION_BTN = '/html/body/div/div/div[4]/div[1]/div/div/div/div/div'
+        @MIDDLE_CLOSE_SESSION_BTN ='/html/body/div/div/div[4]/div[2]/div/div[3]/div/div/div[1]/button'
         @page = page
+    end
+
+
+    def clickNameAtTheTopRigth()
+        @page.find(:xpath, @NAME_AT_TOP_RIGHT).click
+    end
+    
+    def clickTopRightCloseSessionBtn()
+        @page.find(:xpath, @TOP_RIGHT_CLOSE_SESSION_BTN).click
+        return  InitialPage.new(@page)
+    end
+
+    def clickMiddleCloseSessionBtn()
+        @page.find(:xpath, @MIDDLE_CLOSE_SESSION_BTN ).click
+        return  InitialPage.new(@page)
     end
 
     def validateAccountNameAtTheMiddle()
