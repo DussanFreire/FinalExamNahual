@@ -84,6 +84,13 @@ class EgresadesPage
         @page.click_on(@CLOSE_BTN_MODAL )
     end
 
+    def validateDataOfTheModal(name)
+        title = @page.find(:xpath,@COMPLETE_NAME_MODAL).text
+        if title  != name
+            raise "Expected to see the user data"
+        end
+    end
+
     def validateListaEgresade(listName='Lista Egresades')
         text = @page.find(:xpath,@LISTA_EGRESADES_TEXT).text
         if text != listName
