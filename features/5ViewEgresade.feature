@@ -1,5 +1,5 @@
 Feature: As a Nahual user   
-        I want to see an Alumne
+        I want to see an Egresade
         so I can check his information      
 
 Background:
@@ -14,7 +14,7 @@ Background:
    And I click the button Egresades
 
 @smoke
-Scenario: See an Alumne
+Scenario: See an Egresade
     Given I am on the Nahual Egresades page
     When I click the button Ver of the user named "Sexto Grupo No Eliminar"
     Then I should see the name "Sexto Grupo No Eliminar"
