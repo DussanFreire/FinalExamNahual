@@ -16,7 +16,7 @@ Background:
 @smoke
 Scenario: View a user certificate of an user located in the first page of the table
    Given I am on the Nahual Egresades page
-   When I click the button Certificado of the user named "Juslan Vargas"
+   When I click the button Certificado of the user named "Sexto Grupo No Eliminar"
    Then I should see the certificate of the user
    And I should see the name of the user on the certificate
    And I should see the name of the nodo name on the certificate

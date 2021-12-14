@@ -9,6 +9,10 @@ class HomePage
         @page = page
     end
 
+    def clickOnEgresadeBtn()
+        @page.find(:xpath,@EGRESADES_BTN).click
+        return EgresadesPage.new(@page)
+    end
     def validateWelocomeText()
         welcomeText = @page.find(:xpath,@WELCOME_TEXT).text
         if welcomeText  != "¡ Gracias por confiar en nosotres y ser parte del Proyecto Nahual !"

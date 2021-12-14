@@ -9,6 +9,10 @@ class EgresadesPage
         @NAME_LABEL= 'div.ui.label.nombre'
         @BTN_FROM_ROW = './td[5]/a[1]/button'
         @ROW_FROM_LABEL = './parent::td/parent::tr'
+        @PAGINATOR = 'div.ui.pagination.menu > a.item'
+        @TABLE_ROWS = 'tbody > tr'
+        @TABLE_BODY = '/html/body/div/div/div[4]/div[2]/div/div[2]/div/div[2]/table/tbody'
+        @NEXT_PAGE_BTN = "/html/body/div/div/div[4]/div[2]/div/div[2]/div/div[2]/div[6]/a[4]"
         @page = page
         #Edition form
         @NAME_FIELD_FORM = 'nombre'
@@ -66,6 +70,34 @@ class EgresadesPage
         @page.click_on(@CONFIRM_BTN_FORM)
         sleep(1)
     end
+
+    def clickOnTheCertificateOfAnEgresade(egresadesName)
+        @user = egresadesName
+        cuantityOfPages = @page.all(@PAGINATOR).count
+        elementFound = ''
+        for pag in 1..cuantityOfPages do
+          sleep(3)
+          cuantityOfRows = @page.all(@TABLE_ROWS).count
+          for index in 1..cuantityOfRows do
+            dir = "#{@TABLE_BODY}/tr[#{index}]/td[1]/div[1]"
+            elementFound = @page.find(:xpath, dir).text
+            if elementFound === egresadesName
+              @nodo = @page.find(:xpath, "#{@TABLE_BODY}/tr[#{index}]/td[2]/div").text
+              @page.find(:xpath, "#{@TABLE_BODY}/tr[#{index}]/td[5]/a[2]/button").click
+              return CertificatePage.new(@page,egresadesName,@nodo)
+              break
+            end
+          end
+          if elementFound === egresadesName
+            break
+          end
+          @page.find(:xpath, @NEXT_PAGE_BTN).click
+        end
+        if elementFound != egresadesName
+          raise 'Expected to have the user on the list of egresades.'
+        end
+    end
+
     # VALIDATIONS
     def validateThatTheDataHasChanged()
         sleep(1) 
