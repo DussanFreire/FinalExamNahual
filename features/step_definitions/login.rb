@@ -1,6 +1,5 @@
 Before do
     @initialPage = InitialPage.new(page)
-    puts 'holka'
 end
 
 Given("I am on the Nahual intial page") do
