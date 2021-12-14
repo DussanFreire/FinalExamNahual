@@ -12,7 +12,8 @@ Background:
    And I click on the button Siguiente
    And I click the button Verificar Acceso
    And I click the button Egresades
-
+   
+@egresadeRestoreData
 @smoke
 Scenario: Edit multiple fields
     Given I am on the Nahual Egresades page
