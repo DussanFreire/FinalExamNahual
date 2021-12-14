@@ -26,6 +26,11 @@ class VerifyPage
         return  InitialPage.new(@page)
     end
 
+    def clickVerifyBtn()
+        buttonLabel = @page.find(:xpath,@VERIFY_BTN).click
+        return HomePage.new(@page)
+    end
+
     def validateAccountNameAtTheMiddle()
         name = @page.find(:xpath, @NAME_AT_MIDDLE).text
         if not name.include? "duslan marinero"
