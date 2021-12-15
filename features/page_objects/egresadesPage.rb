@@ -41,6 +41,11 @@ class EgresadesPage
         @page.find(:css, @IMPORTAR_BTN).click
     end
 
+    def fillSearchField(string)
+        sleep(3)
+        @page.find(:css, @SEARCH_FIELD).fill_in with: string
+    end
+
     def chargeCSV(string)
         @userAdded = string
         Capybara.ignore_hidden_elements = false
@@ -59,6 +64,7 @@ class EgresadesPage
     def clickConfirmarImportBtn()
         @page.find(:xpath, @CONFIRM_IMPORT_BTN).click
     end
+
     def clickInTheEditButtonOfAnEgresade(string)
         td = @page.find(:css, @NAME_LABEL , text: /#{string}/)
         tr = td.find(:xpath, @ROW_FROM_LABEL) 
@@ -154,6 +160,15 @@ class EgresadesPage
     end
 
     # VALIDATIONS
+
+    def validateUserInTheFirstRow(string)
+        sleep(3)
+        name = @page.find(:xpath, "#{@TABLE_BODY}/tr/td[1]/div[1]").text
+        if name != string
+            raise "Expected to find the #{string} in the first row'"
+        end
+    end
+
     def validateWarningMessage()
         warningTitle =  @page.find(:xpath, @WANING_MSG ).text
         if warningTitle != 'Error de carga!'
@@ -330,6 +345,7 @@ class EgresadesPage
             raise 'Expected to see a button named Importar'
         end
     end
+
     def validateHomeBtn()
         buttonLabel = @page.find(:xpath,@HOME_BTN).text
         if buttonLabel  != "Home"
