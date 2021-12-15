@@ -54,7 +54,6 @@ $ cd finalexamnnahual
 # Run the project
 $ cucumber features -t @smoke
 
-# The server will initialize in the <http://localhost:3000>
 ```
 
 <a href="#top">Back to top</a>
