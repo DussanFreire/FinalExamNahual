@@ -14,6 +14,11 @@ class HomePage
         return EgresadesPage.new(@page)
     end
 
+    def clickOnCursosBtn()
+        @page.find(:xpath,@CURSOS_BTN).click
+        return CursosPage.new(@page)
+    end
+
     def clickOnEmpresasBtn()
         @page.find(:xpath,@EMPRESAS_BTN).click
         return EmpresasPage.new(@page)

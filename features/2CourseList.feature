@@ -14,20 +14,6 @@ Background:
    And I click the Cursos button
 
 @smoke
-Scenario: Delete a course
-    Given I am on the Nahual Cursos
-    When I click on Eliminar button of the first course in the course list
-    And I click on Confirmar button
-    Then I should see a message of confirmation
-
-
-Scenario: See Inactive courses
-    Given I am on the Nahual Cursos
-    When I click on Active state menu
-    And I click on Inactive option
-    Then I should see the inactive list and state
-
-@smoke
 Scenario: Create Curso
     Given I am on the Nahual Cursos
     And I click Nuevo Curso button form
@@ -41,3 +27,17 @@ Scenario: Create Curso
     And I write notas "Nota prueba"
     And I click confirmar button
     Then I should see a message of correct Curso creation
+
+@smoke
+Scenario: Delete a course
+    Given I am on the Nahual Cursos
+    When I click on Eliminar button of the first course in the course list
+    And I click on Confirmar button
+    Then I should see a message of confirmation
+
+@confirmation_test
+Scenario: See Inactive courses
+    Given I am on the Nahual Cursos
+    When I click on Active state menu
+    And I click on Inactive option
+    Then I should see the inactive list and state
