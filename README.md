@@ -42,19 +42,18 @@ Describe your project
 
 ## :sparkles: Features
 
-:heavy_check_mark: Feature 1;\
-:heavy_check_mark: Feature 2;\
-:heavy_check_mark: Feature 3;
+:heavy_check_mark: Test automation;\
+:heavy_check_mark: Smoke test;\
+:heavy_check_mark: Page Object pattern;
 
 ## :rocket: Technologies
 
 The following tools were used in this project:
 
-- [Cabybara](https://expo.io/)
-- [Ruby](https://nodejs.org/en/)
-- [Selenium](https://pt-br.reactjs.org/)
-- [Cucumber](https://reactnative.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
+- [Cabybara](https://teamcapybara.github.io/capybara/)
+- [Ruby](https://www.ruby-lang.org/es/)
+- [Selenium](https://www.selenium.dev/)
+- [Cucumber](https://cucumber.io/)
 
 ## :white_check_mark: Requirements
 
@@ -69,21 +68,10 @@ $ git clone https://github.com/DussanFreire/finalexamnnahual
 # Access
 $ cd finalexamnnahual
 
-# Install dependencies
-$ yarn
-
 # Run the project
-$ yarn start
+$ cucumber features -t @smoke
 
 # The server will initialize in the <http://localhost:3000>
 ```
-
-## :memo: License
-
-This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
-
-Made with :heart: by <a href="https://github.com/DussanFreire" target="_blank">{{YOUR_NAME}}</a>
-
-&#xa0;
 
 <a href="#top">Back to top</a>
