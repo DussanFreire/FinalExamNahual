@@ -20,6 +20,45 @@ class CursosPage
         @CONFIRM_BTN = "/html/body/div[2]/div/div[3]/button[2]"
 
         @CORRECT_CLASS_CREATION_MESSAGE = "/html/body/div/div/div[2]/div/div/div"
+        @TOPICOS_BTN = 'Topicos'
+        @TOPIC_FIELD = 'Topico'
+        @CREATE_TOPIC_BTN = 'Crear'
+        @CONFIRM_DELETE_BTN= "Confirmar"
+        @EDIT_TOPIC_BTN = '/html/body/div[2]/div/div[2]/form/button[2]'
+        @TABLE_NAME = '/html/body/div/div/div[4]/div[2]/div/div[2]/div[2]/div[1]/h2/div'
+    end
+
+    def clickInConfirmDeteleBtn()
+        @page.click_on(@CONFIRM_DELETE_BTN)
+    end
+
+    def clickDeleteTopicOfTopics(string)
+        @topic=string
+        td = @page.find(:css, 'td', text: /#{string}/)
+        tr = td.find(:xpath, './parent::tr') 
+        tr.find(:xpath,'./td[3]/div/button[2]').click
+    end
+
+    
+    def clickTopicosBtn()
+        @page.click_on(@TOPICOS_BTN)
+    end
+
+    def clickTopicosBtnn()
+        @page.click_on('Topico')
+    end
+
+    def clickCreateTopicBtn()
+        sleep(1)
+        @page.click_on(@CREATE_TOPIC_BTN)
+        sleep(1)
+    end
+    
+
+
+    def fillTheFieldName(topic)
+        @topic = topic
+        @page.fill_in @TOPIC_FIELD, :with => topic
     end
 
     def clickOnTheFirstRowDeleteBtn()
@@ -77,7 +116,46 @@ class CursosPage
     def clickConfirmBtn()
         @page.find(:xpath,@CONFIRM_BTN ).click
     end
+
+
+    def clickInTheEditBtn(string)
+        @topic=string
+        td = @page.find(:css, 'td', text: /#{string}/)
+        tr = td.find(:xpath, './parent::tr') 
+        tr.find(:xpath,'./td[3]/div/button[1]').click
+    end
+
+    def clickOnTheEditBtn()
+        @page.find(:xpath,@EDIT_TOPIC_BTN).click
+    end
     #Validations
+
+    def validateTable(tableName)
+        nameTable=@page.find(:xpath,@TABLE_NAME).text
+        if nameTable  != tableName
+            raise "Expected table name does not match with expected"
+        end
+    end
+    
+    def validateModification()
+        sleep(2)
+    end
+    def validateEditionConfirmationMessage()
+    end
+
+
+    def validateTopicConfirmationMessage()
+    end
+
+
+
+    def validateDeleteConfirmation()
+    end
+
+    def validateTheTopicInTheListOfTopics()
+        sleep(2)
+    end
+
     def validateConfirmationMessage()
         messageLabel = @page.find(:xpath, @CONFIRMATION_MESSAGE).text
         if messageLabel  != 'Curso eliminado con éxito'

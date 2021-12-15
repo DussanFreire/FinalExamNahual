@@ -1,6 +1,6 @@
 Feature: As a Nahul user          
-        I want add an egresade     
-        so I can have an update list of egresades
+         I want add an egresade     
+         so I can have an update list of egresades
 
 Background:
    Given I am on the Nahual intial page
