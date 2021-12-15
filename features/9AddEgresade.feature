@@ -13,7 +13,6 @@ Background:
    And I click the button Verificar Acceso
    And I click the button Egresades
    And I click the button Importar
-
 Scenario: load a csv with one egresade named "Henry Torrico"
    Given I am in the import page
    When I had charge a csv file with the Egresade "Henry Torrico"
@@ -23,9 +22,8 @@ Scenario: load a csv with one egresade named "Henry Torrico"
       | Fecha de Nacimiento | 8/21/1997 |
       | Mail | henry@gmail.com |
       | Numero de Celular | 78306201 |
-      | SEDE | Intive |
-      | NODO | CABA |
-
+      | SEDE | Máximo Paz |
+      | NODO | Santa Fe |
 @smoke
 Scenario: Add an egresade with a csv with the right "Node" and "Cede" fields and a quantity of lines below to 200
    Given I had charge a csv file with the Egresade "Henry Torrico"
